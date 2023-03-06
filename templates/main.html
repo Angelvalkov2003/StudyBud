@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Study bud</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/main.css' %}"><!--svyrzva sys css -->
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}      <!--otgovarq za messige da ti izliza ako nqma takyv akaunt-->
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+    {% block content %}
+     
+    {% endblock %}
+</body>
+</html>

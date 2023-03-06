@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+    <form method="POST" action="" class="form">
+        {% csrf_token %}
+        <!--{% for field in form %}
+        <div>
+            <label for="room_name"> {{field.label}} </label>
+            {{field}}
+        </div>
+        {% endfor %}
+        -->
+        <div>
+            <label for="room_topic"> Topic </label>
+            <input required name="topic" type="text" list="topic-list"/>
+            <datalist id="topic-list">
+                <select id="room_topic">
+                    {% for topic in topics %}
+                        <option value="{{topic.name}}">{{topic.name}}</option>
+                    {% endfor %}
+                </select>
+
+            </datalist>
+        </div>
+
+        <div>
+            <label for="room_name">Room name</label>
+            {{form.name}}
+        </div>
+        <div>
+            <label for="room_description"> Description </label>
+            {{form.description}}
+        </div>
+        
+           <!--  {{form.as_p}}  .as_p pravi taka che vsqka edna sekciq da e na nov red -->
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+{% endblock content %}

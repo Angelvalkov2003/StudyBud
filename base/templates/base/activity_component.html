@@ -1,0 +1,13 @@
+<h3>Recent Activity</h3>
+    {% for message in room_messages %}
+    <div>
+        <small><a href="{% url 'user-profile' message.user.id%}">{{message.user}}</a>    {{message.created|timesince}} ago </small><!--timesince pravi da pishe predi kolko vreme e neshoto-->
+        <small>replayed to: "{{message.room}}"</small>
+            <p>{{message}}</p><!--V model v message imame che ako printiame prosto messiga ni se printirat pyrvite 50 znaka samo-->
+            {% if request.user == message.user %}
+                <a href="{% url 'delete-message' message.id%}">Delete</a>
+            {% endif %}
+            
+            <hr>
+    </div>
+    {% endfor%}

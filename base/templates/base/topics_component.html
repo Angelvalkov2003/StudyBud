@@ -1,0 +1,11 @@
+<h3>Browse topics</h3>
+        <hr>
+        <div>
+            <a href="{% url 'home' %}">All</a> <!-- tuk vkarvame v syshiq url za basic tyrseneto -->
+        </div>
+
+        {% for topic in topics %}
+        <div>
+            <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a> <!-- tuk vkarvame v syshiq url s okochanie imeto na topica-->
+        </div>
+        {% endfor %}
